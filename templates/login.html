@@ -2,13 +2,13 @@
 
 {% block loginPage %}
     <h2>Sign In</h2>
-    <form id="login_form" method="post" action="{% url 'loginPage' %}">
+    <form id="login_form" method="post" action="{% url 'log_in_page' %}">
         {% csrf_token %}
-        <input id="username" name="username" placeholder="username">
-        <input type="password" id="password" name="password" placeholder="pass">
+        <label for="username"></label><input id="username" name="username" placeholder="username">
+        <label for="password"></label><input type="password" id="password" name="password" placeholder="pass">
         <button name="submit" type="submit">Sign In</button>
     </form>
-    {% if signed_in %}
+    {% if login_failed %}
         <div id="error">
             <p>login failed</p>
         </div>

@@ -2,9 +2,15 @@
 
 {% block signupPage %}
     <h2>Sign up</h2>
-    <form id="register_form" method="post" action="{% url 'signupPage' %}">
+    <form id="register_form" method="post" action="{% url 'register_page' %}">
         {% csrf_token %}
         {{ signupForm.as_p }}
         <button name="submit" type="submit">Sign up</button>
     </form>
+    {% if error_message1 %}
+        <p style="background-color: darkred">{{ error_message1 }}</p>
+    {% endif %}
+    {% if error_message2 %}
+        <p style="background-color: darkred">{{ error_message2 }}</p>
+    {% endif %}
 {% endblock %}

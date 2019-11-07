@@ -4,4 +4,7 @@
     <p>
     سلام. به سامانه‌ی انتخاب واحد مجازی خوش آمدید.
     </p>
+    {% if login_successful %}
+        <p style="background-color: limegreen">ورود موفقیت آمیز بود.</p>
+    {% endif %}
 {% endblock %}
