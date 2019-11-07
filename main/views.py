@@ -15,7 +15,7 @@ def main_page(request):
 
 def signup(request):
     if request.method == 'POST':
-        signupForm = UserCreationForm(request.POST)
+        signupForm = SignUpForm(request.POST)
         if signupForm.is_valid():
             signupForm.save()
             return redirect('homePage')
