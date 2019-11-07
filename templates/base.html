@@ -1,7 +1,18 @@
-<html>
-    <div>
-        <a id="login">Login</a>
-        <a id="register">Register</a>
-        <a id="homepage" href="\">Home Page</a>
-    </div>
+<!DOCTYPE html>
+<html lang="en" style="background-color: lightsalmon">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="navbar" style="background-color: darkseagreen">
+            <a id="login">Login</a>
+            <a id="register">Register</a>
+            <a id="homepage" href="\">Home Page</a>
+        </div>
+        <div>
+            {% block main_text %}
+            {% endblock %}
+        </div>
+    </body>
 </html>
