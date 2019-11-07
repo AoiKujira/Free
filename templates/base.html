@@ -6,13 +6,20 @@
     </head>
     <body>
         <div id="navbar" style="background-color: #67b9bc">
-            <a id="login">Login</a>
-            <a id="register" href="/signup/">Register</a>
-            <a id="homepage" href="/">Home Page</a>
+            {% if signed_in %}
+                <a id="login" href={% url 'loginPage' %}>Login</a>
+                <a id="register" href={% url 'signupPage' %}>Register</a>
+            {% else %}
+                <a id="logout" href={% url 'logoutPage' %}>Log Out</a>
+            {% endif %}
+            <a id="homepage" href={% url 'homePage' %}>Home Page</a>
+            <a id="contact_us" href={% url 'homePage' %}>Contact Us</a>
+
         </div>
         <div>
             {% block main_text %}{% endblock %}
             {% block signupPage %}{% endblock %}
+            {% block loginPage %}{% endblock %}
         </div>
     </body>
 </html>

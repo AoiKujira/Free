@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block loginPage %}
+    <h2>Sign In</h2>
+    <form id="login_form" method="post" action="{% url 'loginPage' %}">
+        {% csrf_token %}
+        <input id="username" name="username" placeholder="username">
+        <input type="password" id="password" name="password" placeholder="pass">
+        <button name="submit" type="submit">Sign In</button>
+    </form>
+    {% if signed_in %}
+        <div id="error">
+            <p>login failed</p>
+        </div>
+    {% endif %}
+{% endblock %}
