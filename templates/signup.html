@@ -2,7 +2,7 @@
 
 {% block signupPage %}
     <h2>Sign up</h2>
-    <form id="register_from" method="post" action="{% url 'signupPage' %}">
+    <form id="register_form" method="post" action="{% url 'signupPage' %}">
         {% csrf_token %}
         {{ signupForm.as_p }}
         <button type="submit">Sign up</button>
