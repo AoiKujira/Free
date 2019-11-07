@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-
+from django.core.mail import send_mail
 from main.forms import *
 
 
@@ -76,6 +76,8 @@ def contact_us(request):
             title = form.cleaned_data['title']
             email = form.cleaned_data['email']
             text = form.cleaned_data['text']
+            message = "has sent you a new message:\n\n{0}".format(text)
+            send_mail(subject=title, message=text, from_email=email, recipient_list=['webe19lopers@gmail.com'])
             return render(request, 'contact_us_response.html', {'success': True})
     form = ContactForm()
     return render(request, "contact_us.html", {'form': form, 'success': False})
