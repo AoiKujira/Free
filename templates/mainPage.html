@@ -1,10 +1,12 @@
 {%  extends 'base.html' %}
 
 {% block main_text %}
-    <p>
-    سلام. به سامانه‌ی انتخاب واحد مجازی خوش آمدید.
-    </p>
+    <div class="ui">
+         <p class="ui text" align="center">
+        سلام. به سامانه‌ی انتخاب واحد مجازی خوش آمدید.
+        </p>
+    </div>
     {% if login_successful %}
-        <p style="background-color: limegreen">ورود موفقیت آمیز بود.</p>
+        <label class="ui inline_label" style="background-color: limegreen">ورود موفقیت آمیز بود.</label>
     {% endif %}
 {% endblock %}
