@@ -33,3 +33,4 @@ class CourseForm(ModelForm):
         model = Course
         fields = ['department', 'name', 'course_number', 'group_number', 'teacher', 'start_time', 'end_time',
                   'first_day', 'second_day']
+

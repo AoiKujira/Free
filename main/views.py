@@ -133,7 +133,16 @@ def new_course(request):
         form = CourseForm(request.POST)
         if form.is_valid():
             form.save()
+            print('form saved')
+        else:
+            print(form.errors)
         return render(request, 'new_course.html', {'form': form})
+
     else:
         form = CourseForm()
         return render(request, 'new_course.html', {'form': form})
+
+
+def courses(request):
+    print(Course.objects.all())
+    return render(request, 'courses.html', {'courses': Course.objects.all()})

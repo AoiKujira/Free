@@ -13,4 +13,5 @@ urlpatterns = [
     path('edit/', profile_edit, name='profile_edit_page'),
     path('panel/', panel, name='panel_page'),
     path('new_course/', new_course, name='new_course'),
+    path('courses/', courses, name='courses'),
 ]
