@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color: #ffbdc9">
     <head>
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+        <script src="semantic/dist/semantic.min.js"></script>
         <meta charset="UTF-8">
         <title>Title</title>
     </head>
     <body>
         <div id="navbar" style="background-color: #67b9bc">
             {% if not request.user.is_authenticated %}
-                <a id="login" href={% url 'log_in_page' %}>Login</a>
-                <a id="register" href={% url 'register_page' %}>Register</a>
+                <a class="item right labeled icon" id="login" href={% url 'log_in_page' %}>Login</a>
+                <i class="sign-in icon"></i>
+                <a class="item" id="register" href={% url 'register_page' %}>Register</a>
             {% else %}
-                <a id="logout" href={% url 'log_out_page' %}>Log Out</a>
-                <a id="profile" href={% url 'profile_page' %}>Profile</a>
-                <a id="panel" href="{% url 'home_page' %}">Panel</a>
+                <a class="item" id="logout" href={% url 'log_out_page' %}>Log Out</a>
+                <a class="item" id="profile" href={% url 'profile_page' %}>Profile</a>
+                <a class="item" id="panel" href="{% url 'home_page' %}">Panel</a>
             {% endif %}
-            <a id="homepage" href={% url 'home_page' %}>Home Page</a>
-            <a id="contact_us" href={% url 'contact_us' %}>Contact Us</a>
+            <a class="header item" id="homepage" href={% url 'home_page' %}>Home Page</a>
+            <a class="item" id="contact_us" href={% url 'contact_us' %}>Contact Us</a>
         </div>
         <div>
             {% block main_text %}{% endblock %}
