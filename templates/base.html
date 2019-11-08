@@ -11,6 +11,7 @@
                 <a id="register" href={% url 'register_page' %}>Register</a>
             {% else %}
                 <a id="logout" href={% url 'log_out_page' %}>Log Out</a>
+                <a id="profile" href={% url 'profile_page' %}>Profile</a>
             {% endif %}
             <a id="homepage" href={% url 'home_page' %}>Home Page</a>
             <a id="contact_us" href={% url 'contact_us' %}>Contact Us</a>
@@ -19,9 +20,8 @@
             {% block main_text %}{% endblock %}
             {% block signupPage %}{% endblock %}
             {% block loginPage %}{% endblock %}
+            {% block contact_us %}{% endblock %}
+            {% block profile %}{% endblock %}
         </div>
-    <div>
-        {% block contact_us %}{% endblock %}
-    </div>
     </body>
 </html>

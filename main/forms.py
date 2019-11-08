@@ -19,3 +19,8 @@ class ContactForm(forms.Form):
     title = forms.CharField(max_length=200, required=True)
     email = forms.EmailField(required=True)
     text = forms.CharField(widget=forms.Textarea, max_length=250, min_length=10, required=True)
+
+
+class ProfileEditForm(forms.Form):
+    new_first_name = forms.CharField(max_length=30, help_text='', required=False)
+    new_last_name = forms.CharField(max_length=30, help_text='', required=False)

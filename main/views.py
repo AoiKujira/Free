@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
+
 from main.forms import *
 
 
@@ -81,4 +83,37 @@ def contact_us(request):
             return render(request, 'contact_us_response.html', {'success': True})
     form = ContactForm()
     return render(request, "contact_us.html", {'form': form, 'success': False})
-    pass
+
+
+@login_required()
+def profile(request):
+    user = request.user
+    print(user.first_name)
+    context = {'username': user.username,
+               'first_name': user.first_name,
+               'last_name': user.last_name,
+               }
+
+    return render(request, 'profile.html', context=context)
+
+
+@login_required()
+def profile_edit(request):
+    context = {'message': ''}
+    if request.method == 'POST':
+        form = ProfileEditForm(request.POST)
+        if form.is_valid():
+            new_first_name = form.cleaned_data['new_first_name']
+            new_last_name = form.cleaned_data['new_last_name']
+            user = request.user
+            if new_first_name != '':
+                user.first_name = new_first_name
+            if new_last_name != '':
+                user.last_name = new_last_name
+            user.save()
+            context = {'message': 'success'}
+            return render(request, 'profile.html', context=context)
+        else:
+            context = {'message': 'failed'}
+            return render(request, 'profile.html', context=context)
+    return render(request, 'profile_edit.html', context=context)

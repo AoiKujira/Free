@@ -1,0 +1,11 @@
+{%  extends 'base.html' %}
+
+{% block profile %}
+    <h2>edit</h2>
+    <form id="setting" method="post" action="{% url 'profile_edit_page' %}">
+        {% csrf_token %}
+        <input id="first_name" name="first_name" placeholder="first_name">
+        <input id="last_name" name="last_name" placeholder="last_name">
+        <button name="submit" type="submit">edit</button>
+    </form>
+{% endblock %}
