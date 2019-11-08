@@ -123,3 +123,7 @@ def profile_edit(request):
             context = {'message': 'failed'}
             return render(request, 'profile.html', context=context)
     return render(request, 'profile_edit.html', context=context)
+
+
+def panel(request):
+    return render(request, 'panel.html')
