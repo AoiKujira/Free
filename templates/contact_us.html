@@ -1,7 +1,7 @@
 {%  extends 'base.html' %}
 
 {% block contact_us %}
-    <form id="contact_us_form" method="post" action="{% url 'contact_us' %}">
+    <form class="ui form" id="contact_us_form" method="post" action="{% url 'contact_us' %}">
         {% csrf_token %}
         <input id="title" name="title" placeholder="title">
         <input id="email" name="email" placeholder="email">
