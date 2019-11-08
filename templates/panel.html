@@ -2,10 +2,12 @@
 
 {% block panel %}
     <div class="ui" style="background-color: #8bedcf; margin: 10px">
-        <a class="ui detail" id="make_new_course" href="{% url 'new_course'%}">
-            <i class="yellow plus icon"></i>
-            Make New Course
-        </a>
+        {% if user.is_superuser %}
+            <a class="ui detail" id="make_new_course" href="{% url 'new_course'%}">
+                <i class="yellow plus icon"></i>
+                Make New Course
+            </a>
+        {% endif %}
         <a id="courses" href="{% url 'courses' %}">Courses</a>
     </div>
 {% endblock %}

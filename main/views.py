@@ -1,5 +1,5 @@
 from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
@@ -125,9 +125,9 @@ def profile_edit(request):
 
 
 def panel(request):
-    return render(request, 'panel.html')
+    return render(request, 'panel.html', {'user': request.user})
 
-
+@user_passes_test(lambda u: u.is_superuser)
 def new_course(request):
     if request.method == 'POST':
         form = CourseForm(request.POST)
