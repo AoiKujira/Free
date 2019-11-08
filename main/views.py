@@ -87,7 +87,6 @@ def contact_us(request):
 @login_required()
 def profile(request):
     user = request.user
-    print(user.first_name)
     context = {'username': user.username,
                'first_name': user.first_name,
                'last_name': user.last_name,
@@ -106,9 +105,9 @@ def profile_edit(request):
             new_first_name = data['first_name']
             new_last_name = data['last_name']
 
-            user = request.user
-            u = User.objects.get(first_name=user.first_name)
-            print('n1', new_last_name, 'n2', new_first_name, 'user', user, 'u', u)
+            u = request.user
+            # u = User.objects.get(user_name=user.username)
+            # print('n1', new_last_name, 'n2', new_first_name, 'user', user, 'u', u)
             if new_first_name != '':
                 u.first_name = new_first_name
                 # User.objects.filter(first_name=user.first_name).update(first_name=new_first_name)
