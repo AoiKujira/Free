@@ -12,6 +12,7 @@
             {% else %}
                 <a id="logout" href={% url 'log_out_page' %}>Log Out</a>
                 <a id="profile" href={% url 'profile_page' %}>Profile</a>
+                <a id="panel" href="{% url 'home_page' %}">Panel</a>
             {% endif %}
             <a id="homepage" href={% url 'home_page' %}>Home Page</a>
             <a id="contact_us" href={% url 'contact_us' %}>Contact Us</a>
