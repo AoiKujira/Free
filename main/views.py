@@ -103,16 +103,23 @@ def profile_edit(request):
     if request.method == 'POST':
         form = ProfileEditForm(request.POST)
         if form.is_valid():
-            new_first_name = form.cleaned_data['new_first_name']
-            new_last_name = form.cleaned_data['new_last_name']
+            data = form.data
+            new_first_name = data['first_name']
+            new_last_name = data['last_name']
+
             user = request.user
+            u = User.objects.get(first_name=user.first_name)
+            print('n1', new_last_name, 'n2', new_first_name, 'user', user, 'u', u)
             if new_first_name != '':
-                user.first_name = new_first_name
+                u.first_name = new_first_name
+                # User.objects.filter(first_name=user.first_name).update(first_name=new_first_name)
             if new_last_name != '':
-                user.last_name = new_last_name
-            user.save()
+                u.last_name = new_last_name
+                # User.objects.filter(last_name=user.last_name).update(last_name=new_last_name)
+            u.save(update_fields=['first_name', 'last_name'])
             context = {'message': 'success'}
-            return render(request, 'profile.html', context=context)
+            return redirect('profile_page')
+            # return render(request, 'profile.html', context=context)
         else:
             context = {'message': 'failed'}
             return render(request, 'profile.html', context=context)

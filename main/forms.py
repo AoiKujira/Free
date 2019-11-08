@@ -22,5 +22,5 @@ class ContactForm(forms.Form):
 
 
 class ProfileEditForm(forms.Form):
-    new_first_name = forms.CharField(max_length=30, help_text='', required=False)
-    new_last_name = forms.CharField(max_length=30, help_text='', required=False)
+    new_first_name = forms.CharField(max_length=30, required=False)
+    new_last_name = forms.CharField(max_length=30, required=False)
