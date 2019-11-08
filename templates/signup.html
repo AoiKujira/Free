@@ -2,10 +2,10 @@
 
 {% block signupPage %}
     <h2>Sign up</h2>
-    <form id="register_form" method="post" action="{% url 'register_page' %}">
+    <form class="ui form" id="register_form" method="post" action="{% url 'register_page' %}">
         {% csrf_token %}
         {{ signupForm.as_p }}
-        <button name="submit" type="submit">Sign up</button>
+        <button class="ui button inverted green" name="submit" type="submit">Sign up</button>
     </form>
     <div id="errors">
         {% if error_message1 %}
