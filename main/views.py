@@ -153,8 +153,21 @@ def courses(request):
 def search_department(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        if form.is_valid():
-            return render(request, 'courses.html',
-                          {'courses': Course.objects.all(),
-                           'found_courses': Course.objects.filter(department=form.data['search_query'])})
+        form.is_valid()
+        if True:
+            # print(request.POST['department'], request.POST['teacher'], request.POST['course'])
+            if 'department' in request.POST and request.POST.get('department'):
+                return render(request, 'courses.html',
+                              {'courses': Course.objects.all(),
+                               'found_courses': Course.objects.filter(department=request.POST['search_query'])})
+            if 'teacher' in request.POST and request.POST.get('teacher'):
+                return render(request, 'courses.html',
+                              {'courses': Course.objects.all(),
+                               'found_courses': Course.objects.filter(teacher=request.POST['search_query'])})
+            if 'course' in request.POST and request.POST.get('course'):
+                return render(request, 'courses.html',
+                              {'courses': Course.objects.all(),
+                               'found_courses': Course.objects.filter(name=request.POST['search_query'])})
+        else:
+            print('agrfsdegterfdstgerfdtgrfdtgrfedwgrfed')
     return redirect('courses')

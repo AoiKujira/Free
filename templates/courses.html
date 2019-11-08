@@ -17,6 +17,19 @@
         {% csrf_token %}
         <input name="search_query">
         <button type="submit" name="submit">search by department</button>
+        <label>
+            department
+            <input id="department" name="department" type="checkbox">
+        </label>
+        <label>
+            teacher
+            <input id="teacher" name="teacher" type="checkbox">
+        </label>
+
+        <label>
+            checkbox
+            <input id="course" name="course" type="checkbox">
+        </label>
     </form>
     <div id="search_result">
         {% for course in found_courses %}
