@@ -78,7 +78,7 @@ def contact_us(request):
         text = data['text']
         message = "has sent you a new message:\n\n{0}".format(text)
         send_mail(subject=title, message=text+" "+email, from_email='skillup.ml@gmail.com',
-                  recipient_list=['webe19lopers@gmail.com'], fail_silently=Tru)
+                  recipient_list=['webe19lopers@gmail.com'], fail_silently=True)
         return render(request, 'contact_us_response.html', {'success': True})
     form = ContactForm()
     return render(request, "contact_us.html", {'form': form, 'success': False})
