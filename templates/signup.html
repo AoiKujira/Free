@@ -7,10 +7,12 @@
         {{ signupForm.as_p }}
         <button name="submit" type="submit">Sign up</button>
     </form>
-    {% if error_message1 %}
-        <p style="background-color: darkred">{{ error_message1 }}</p>
-    {% endif %}
-    {% if error_message2 %}
-        <p style="background-color: darkred">{{ error_message2 }}</p>
-    {% endif %}
+    <div id="errors">
+        {% if error_message1 %}
+            <p style="background-color: darkred">{{ error_message1 }}</p>
+        {% endif %}
+        {% if error_message2 %}
+            <p style="background-color: darkred">{{ error_message2 }}</p>
+        {% endif %}
+    </div>
 {% endblock %}
