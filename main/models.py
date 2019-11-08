@@ -13,3 +13,4 @@ class Course(models.Model):
     first_day = models.IntegerField()
     second_day = models.IntegerField()
 
+

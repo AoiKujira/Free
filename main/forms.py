@@ -2,7 +2,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth import authenticate, login
-from django.forms import Form
+from django.forms import Form, ModelForm
+
+from main.models import Course
 
 
 class SignUpForm(UserCreationForm):
@@ -26,5 +28,8 @@ class ProfileEditForm(forms.Form):
     new_last_name = forms.CharField(max_length=200, required=False)
 
 
-class CourseForm(forms.Form):
-    pass
+class CourseForm(ModelForm):
+    class Meta:
+        model = Course
+        fields = ['department', 'name', 'course_number', 'group_number', 'teacher', 'start_time', 'end_time',
+                  'first_day', 'second_day']
