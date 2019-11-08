@@ -1,10 +1,12 @@
 {%  extends 'base.html' %}
 
 {% block profile %}
-    <div >
-        <span id="text_first_name">{{ first_name }}</span>
-        <span id="text_last_name">{{ last_name }}</span>
-        <span id="text_user_name">{{ username }}</span>
-        <a id="setting" href="{% url 'profile_edit_page' %}">edit profile</a>
+    <div class="ui equal width center aligned padded grid" >
+        <span class="five wide column" id="text_first_name">{{ first_name }}</span>
+        <span class="five wide column" id="text_last_name">{{ last_name }}</span>
+        <span class="five wide column" id="text_user_name">{{ username }}</span>
+    </div>
+    <div class="ui equal width center aligned grid">
+        <a class="teal sixteen wide column" id="setting" href="{% url 'profile_edit_page' %}">edit profile</a>
     </div>
 {% endblock %}

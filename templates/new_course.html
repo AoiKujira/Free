@@ -2,7 +2,7 @@
 
 {% block panel %}
     <h2>add new course</h2>
-    <form id="make_course" method="post" action="{% url 'new_course' %}">
+    <form class="ui form" id="make_course" method="post" action="{% url 'new_course' %}">
         {% csrf_token %}
         {% for field in form %}
             <p>
@@ -32,7 +32,7 @@
             <option value="3">سه‌شنبه</option>
             <option value="4">چهارشنبه</option>
         </select>{% endcomment %}
-        <button name="submit" type="submit">Make Course</button>
+        <button class="ui button inverted green" name="submit" type="submit">Make Course</button>
     </form>
     {% if login_failed %}
         <div id="error">
