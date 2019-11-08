@@ -130,8 +130,10 @@ def panel(request):
 
 def new_course(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        form.is_valid()
-        # form.save()
-        print(form)
-    return render(request, 'new_course.html')
+        form = CourseForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return render(request, 'new_course.html', {'form': form})
+    else:
+        form = CourseForm()
+        return render(request, 'new_course.html', {'form': form})

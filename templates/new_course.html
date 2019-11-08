@@ -4,7 +4,14 @@
     <h2>add new course</h2>
     <form id="make_course" method="post" action="{% url 'new_course' %}">
         {% csrf_token %}
-        <input id="department" name="department" placeholder="department">
+        {% for field in form %}
+            <p>
+                {{ field.label_tag }}
+                {{ field }}
+
+            </p>
+        {% endfor %}
+        {% comment %}<input id="department" name="department" placeholder="department">
         <input id="name" name="name" placeholder="name">
         <input id="course_number" name="course_number" placeholder="course_number">
         <input id="group_number" name="group_number" placeholder="group_number">
@@ -24,7 +31,7 @@
             <option value="2">دوشنبه</option>
             <option value="3">سه‌شنبه</option>
             <option value="4">چهارشنبه</option>
-        </select>
+        </select>{% endcomment %}
         <button name="submit" type="submit">Make Course</button>
     </form>
     {% if login_failed %}
