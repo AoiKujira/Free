@@ -20,4 +20,4 @@ class Course(models.Model):
     end_time = models.TimeField()
     first_day = models.IntegerField(choices=WEEKDAY_CHOICES)
     second_day = models.IntegerField(blank=True, null=True, choices=WEEKDAY_CHOICES)
-    date = models.DateField(default='2020-10-10')
+    exam_date = models.DateField(default='2020-10-10')
