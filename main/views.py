@@ -71,13 +71,15 @@ def log_out(request):
 def contact_us(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
-        if form.is_valid():
-            title = form.cleaned_data['title']
-            email = form.cleaned_data['email']
-            text = form.cleaned_data['text']
-            message = "has sent you a new message:\n\n{0}".format(text)
-            send_mail(subject=title, message=text, from_email=email, recipient_list=['webe19lopers@gmail.com'])
-            return render(request, 'contact_us_response.html', {'success': True})
+        form.is_valid()
+        data = form.data
+        title = data['title']
+        email = data['email']
+        text = data['text']
+        message = "has sent you a new message:\n\n{0}".format(text)
+        send_mail(subject=title, message=text, from_email='farzamzohdi@gmail.com',
+                  recipient_list=['webe19lopers@gmail.com'])
+        return render(request, 'contact_us_response.html', {'success': True})
     form = ContactForm()
     return render(request, "contact_us.html", {'form': form, 'success': False})
 
@@ -121,3 +123,7 @@ def profile_edit(request):
             context = {'message': 'failed'}
             return render(request, 'profile.html', context=context)
     return render(request, 'profile_edit.html', context=context)
+
+
+def panel(request):
+    return render(request, 'panel.html')

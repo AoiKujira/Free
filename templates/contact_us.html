@@ -3,8 +3,8 @@
 {% block contact_us %}
     <form id="contact_us_form" method="post" action="{% url 'contact_us' %}">
         {% csrf_token %}
-        <label for="title"></label><input id="title" name="title" placeholder="title">
-        <label for="email"></label><input id="email" name="email" placeholder="email">
+        <input id="title" name="title" placeholder="title">
+        <input id="email" name="email" placeholder="email">
         <textarea id="text" name="text" placeholder="text"></textarea>
         <button name="submit" type="submit" >Submit</button>
     </form>
