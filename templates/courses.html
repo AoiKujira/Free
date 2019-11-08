@@ -13,4 +13,17 @@
             </div>
         {% endfor %}
     </div>
+    <form id="search_form" method="post" action="{% url 'courses' %}">
+        {% csrf_token %}
+        <input name="search_query">
+        <button type="submit" name="submit">search by department</button>
+    </form>
+    <div id="search_result">
+        {% for course in found_courses %}
+            <div class="{{ course.course_number }}_{{ course.group_number }}">
+                <h4>{{ course.name }}</h4>
+                <div>{{ course.teacher }}</div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

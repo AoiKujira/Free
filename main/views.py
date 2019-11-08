@@ -127,6 +127,7 @@ def profile_edit(request):
 def panel(request):
     return render(request, 'panel.html', {'user': request.user})
 
+
 @user_passes_test(lambda u: u.is_superuser)
 def new_course(request):
     if request.method == 'POST':
@@ -144,5 +145,16 @@ def new_course(request):
 
 
 def courses(request):
-    print(Course.objects.all())
+    if request.method == 'POST':
+        return search_department(request)
     return render(request, 'courses.html', {'courses': Course.objects.all()})
+
+
+def search_department(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            return render(request, 'courses.html',
+                          {'courses': Course.objects.all(),
+                           'found_courses': Course.objects.filter(department=form.data['search_query'])})
+    return redirect('courses')
