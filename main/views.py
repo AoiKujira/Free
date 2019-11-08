@@ -129,4 +129,6 @@ def panel(request):
 
 
 def new_course(request):
+    if request.method == 'POST':
+        pass
     return render(request, 'panel.html')
