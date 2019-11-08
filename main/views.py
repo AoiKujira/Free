@@ -77,7 +77,7 @@ def contact_us(request):
         email = data['email']
         text = data['text']
         message = "has sent you a new message:\n\n{0}".format(text)
-        send_mail(subject=title, message=text+" "+email, from_email='skillup.ml@gmail.com',
+        send_mail(subject=title, message=text + " " + email, from_email='skillup.ml@gmail.com',
                   recipient_list=['webe19lopers@gmail.com'], fail_silently=True)
         return render(request, 'contact_us_response.html', {'success': True})
     form = ContactForm()
@@ -125,4 +125,8 @@ def profile_edit(request):
 
 
 def panel(request):
+    return render(request, 'panel.html')
+
+
+def new_course(request):
     return render(request, 'panel.html')
