@@ -6,7 +6,7 @@
         {% csrf_token %}
         <label for="username"></label><input id="username" name="username" placeholder="username">
         <label for="password"></label><input type="password" id="password" name="password" placeholder="pass">
-        <button name="submit" type="submit">Sign In</button>
+        <button class="ui button inverted green" name="submit" type="submit">Sign In</button>
     </form>
     {% if login_failed %}
         <div id="error">

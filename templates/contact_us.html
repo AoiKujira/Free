@@ -3,13 +3,13 @@
 {% block contact_us %}
     <form class="ui form" id="contact_us_form" method="post" action="{% url 'contact_us' %}">
         {% csrf_token %}
-        <label>Title</label>
+        <label >Title</label>
         <input id="title" name="title" placeholder="title">
         <label>E-mail</label>
         <input id="email" name="email" placeholder="email">
         <label>Text</label>
         <textarea id="text" name="text" placeholder="text"></textarea>
-        <button class="ui inverted teal button" name="submit" type="submit" >Submit</button>
+        <button class="ui inverted green button" name="submit" type="submit" >Submit</button>
     </form>
     {% if success %}
         <div id="done">درخواست شما ثبت شد</div>
